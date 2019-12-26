@@ -17,13 +17,15 @@ set number
 " Menu for autocomplete
 set wildmenu
 
-" filetype on -> Turn on filetype detection
 " plugin      -> Run 'ftplugin.vim' from runtimepath. If there is a plugin
-"                for the detected filetype, load that file.
+"                script for the detected filetype, load that file.
 " indent      -> Run 'indent.vim' from runtimepath. Loads an indent script
 "                for the detected filetype if one exists.   
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
+" Change leader to , (default is \, too far)
+let mapleader=','
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -51,12 +53,11 @@ set foldlevelstart=5
 " Max fold level
 set foldnestmax=5
 
-" ] toggles folds
-nnoremap ] za
+" Bind fold toggle
+nnoremap <leader>f za
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Highlight matches
 set hlsearch
 
@@ -64,4 +65,4 @@ set hlsearch
 set incsearch
 
 " Space turns off highlighting in normal mode
-nnoremap <space> :nohlsearch<CR>
+nnoremap <leader>h :nohlsearch<CR>
