@@ -64,5 +64,10 @@ set hlsearch
 " Highlight as characters are entered
 set incsearch
 
-" Space turns off highlighting in normal mode
+" ,h turns off highlighting in normal mode
 nnoremap <leader>h :nohlsearch<CR>
+
+" My tiny keyboard does not have a dedicated ESC, do this so I don't have to
+" press fn
+imap ` <Esc>
+
