@@ -27,6 +27,10 @@ then
 else
     echo "vimrc found, updating..."
     cd "$INSTALL_DIR/vimrc"
+    # Update without trying to merge
+    git fetch --all
+    # Reset to most recent origin/master
+    git reset --hard origin/master
     git pull
 fi
 
