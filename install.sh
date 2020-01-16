@@ -23,7 +23,7 @@ if [[ ! -d "$INSTALL_DIR/vimrc" ]]
 then
     echo "vimrc not found, cloning..."
     cd "$INSTALL_DIR"
-    git clone https://github.com/mikeiovine/vimrc.git
+    git clone --recurse-submodules https://github.com/mikeiovine/vimrc.git
 fi
 
 make_symlinks
