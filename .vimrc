@@ -1,6 +1,22 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
+" Vundle (Plugin manager)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vundle needs this; turn on further down below
+filetype off
+
+" Add vundle to runtime path
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" Add plugins here
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+call vundle#end()
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlighting
 syntax enable
 
