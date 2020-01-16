@@ -1,5 +1,5 @@
 #!/bin/sh
-INSTALL_DIR=/home/$USER/Documents
+INSTALL_DIR=/home/$USER/misc
 
 make_symlinks() {
     if [[ -d "/home/$USER/.vim" ]]
@@ -29,6 +29,7 @@ fi
 make_symlinks
 
 echo "Installing plugins..."
+vim -c "PluginInstall" -c "qa"
 python $INSTALL_DIR/vimrc/.vim/bundle/YouCompleteMe/install.py --clang-completer
 echo "Install done."
 

@@ -10,7 +10,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " Add plugins here
 call vundle#begin()
 
+" Plugin manager
 Plugin 'VundleVim/Vundle.vim'
+
+" Autocomplete
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
