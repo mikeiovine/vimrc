@@ -29,6 +29,6 @@ fi
 make_symlinks
 
 echo "Installing plugins..."
-python $INSTALL_DIR/.vim/bundle/YouCompleteMe/install.py --clang-completer
+python $INSTALL_DIR/vimrc/.vim/bundle/YouCompleteMe/install.py --clang-completer
 echo "Install done."
 
