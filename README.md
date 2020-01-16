@@ -1,3 +1,4 @@
 # vimrc
-My `.vimrc`. Install with `source install.sh`. Adapted mostly from 
-[this post](https://dougblack.io/words/a-good-vimrc.html).
+My `.vimrc`. Install by downloading and running the install script:
+`wget https://raw.githubusercontent.com/mikeiovine/vimrc/master/install.sh`
+`source install.sh`
