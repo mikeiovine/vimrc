@@ -2,13 +2,13 @@
 INSTALL_DIR=/home/$USER/Documents
 
 make_symlinks() {
-    if [[ -d "~/.vim" ]]
+    if [[ -d "/home/$USER/.vim" ]]
     then
         echo "Found existing ~/.vim, removing..."
         rm -rf ~/.vim
     fi
     
-    if [[ -f "~/.vimrc" ]]
+    if [[ -f "/home/$USER/.vimrc" ]]
     then
         echo "Found existing ~/.vimrc, removing..."
         rm ~/.vimrc
