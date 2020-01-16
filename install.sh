@@ -1,17 +1,20 @@
 #!/bin/sh
 INSTALL_DIR=/home/$USER/misc
 
+VIM_FOLDER=/home/$USER/.vim
+VIMRC=/home/$USER/.vimrc
+
 make_symlinks() {
-    if [[ -d "/home/$USER/.vim" ]]
+    if [[ -d "$VIM_FOLDER" ]] || [[-L "$VIM_FOLDER" ]]
     then
         echo "Found existing ~/.vim, removing..."
-        rm -rf ~/.vim
+        rm -rf "$VIM_FOLDER"
     fi
     
-    if [[ -f "/home/$USER/.vimrc" ]]
+    if [[ -f "$VIMRC" ]] || [[ -L "$VIMRC" ]]
     then
         echo "Found existing ~/.vimrc, removing..."
-        rm ~/.vimrc
+        rm "$VIMRC"
     fi
 
     ln -s "$INSTALL_DIR/vimrc/.vim" /home/$USER/.vim
