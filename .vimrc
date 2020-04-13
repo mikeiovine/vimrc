@@ -16,6 +16,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
 
+" Kotlin syntax stuff
+Plugin 'udalov/kotlin-vim'
+
 call vundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
