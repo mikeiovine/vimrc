@@ -98,3 +98,15 @@ nnoremap <leader>h :nohlsearch<CR>
 " press fn
 imap ` <Esc>
 vmap ` <Esc> 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File explorer
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" No banner 
+let g:netrw_banner = 0
+
+" Open new tab on file selection
+let g:netrw_browse_split = 3
+
+" Size, percentage
+let g:netrw_winsize = 10
+
