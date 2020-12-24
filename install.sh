@@ -1,11 +1,9 @@
 #!/bin/sh
-INSTALL_DIR=/home/$USER/misc
+VIM_FOLDER=~/.vim
+VIMRC=~/.vimrc
 
-VIM_FOLDER=/home/$USER/.vim
-VIMRC=/home/$USER/.vimrc
-
-make_symlinks() {
-    if [[ -d "$VIM_FOLDER" ]] || [[-L "$VIM_FOLDER" ]]
+install_main() {
+    if [[ -d "$VIM_FOLDER" ]] || [[ -L "$VIM_FOLDER" ]]
     then
         echo "Found existing ~/.vim, removing..."
         rm -rf "$VIM_FOLDER"
@@ -17,22 +15,15 @@ make_symlinks() {
         rm "$VIMRC"
     fi
 
-    ln -s "$INSTALL_DIR/vimrc/.vim" /home/$USER/.vim
-    ln -s "$INSTALL_DIR/vimrc/.vimrc" /home/$USER/.vimrc
-    echo "Installed to $INSTALL_DIR"
+    cp -r ".vim" $VIM_FOLDER
+    cp ".vimrc" $VIMRC
+    echo "Installed to $VIMRC"
 }
 
-if [[ ! -d "$INSTALL_DIR/vimrc" ]]
-then
-    echo "vimrc not found, cloning..."
-    cd "$INSTALL_DIR"
-    git clone --recurse-submodules https://github.com/mikeiovine/vimrc.git
-fi
-
-make_symlinks
+install_main
 
 echo "Installing plugins..."
 vim -c "PluginInstall" -c "qa"
-python $INSTALL_DIR/vimrc/.vim/bundle/YouCompleteMe/install.py --clang-completer
+python3 .vim/bundle/YouCompleteMe/install.py --clang-completer
 echo "Install done."
 
