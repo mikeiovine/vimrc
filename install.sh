@@ -24,6 +24,6 @@ install_main
 
 echo "Installing plugins..."
 vim -c "PluginInstall" -c "qa"
-python3 .vim/bundle/YouCompleteMe/install.py --clang-completer
+python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
 echo "Install done."
 
