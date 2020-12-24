@@ -16,9 +16,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
 
-" Kotlin syntax stuff
-Plugin 'udalov/kotlin-vim'
-
 call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -40,10 +37,6 @@ set number
 " Menu for autocomplete
 set wildmenu
 
-" plugin      -> Run 'ftplugin.vim' from runtimepath. If there is a plugin
-"                script for the detected filetype, load that file.
-" indent      -> Run 'indent.vim' from runtimepath. Loads an indent script
-"                for the detected filetype if one exists.   
 filetype plugin on
 filetype indent on
 
@@ -96,16 +89,4 @@ set incsearch
 
 " ,h turns off highlighting in normal mode
 nnoremap <leader>h :nohlsearch<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" File explorer
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" No banner 
-let g:netrw_banner = 0
-
-" Open new tab on file selection
-let g:netrw_browse_split = 3
-
-" Size, percentage
-let g:netrw_winsize = 10
 
