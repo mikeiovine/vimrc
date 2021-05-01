@@ -1,8 +1,7 @@
 # vimrc
-My `.vimrc`. Clone with `recursive` for YCM:
+My `.vimrc`. Clone and run the install script. Note that this *will* overwrite the
+`~/.vimrc` file on your system. 
 
-`git clone https://github.com/mikeiovine/vimrc.git --recursive`
-
-And run the install script:
+`git clone https://github.com/mikeiovine/vimrc.git`
 
 `. ./install.sh`
