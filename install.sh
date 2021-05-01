@@ -18,6 +18,9 @@ install_main() {
     cp -r ".vim" $VIM_FOLDER
     cp ".vimrc" $VIMRC
     echo "Installed to $VIMRC"
+
+    echo "Cloning dependencies"
+    git clone https://github.com/VundleVim/Vundle.vim.git $VIM_FOLDER/bundle/Vundle.vim
 }
 
 install_main
