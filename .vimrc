@@ -49,6 +49,9 @@ set completeopt-=preview
 " For MacBooks
 set backspace=indent,eol,start
 
+" Mouse in normal mode
+set mouse=n
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
