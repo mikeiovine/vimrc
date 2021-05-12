@@ -40,9 +40,6 @@ set wildmenu
 filetype plugin on
 filetype indent on
 
-" Change leader to , (default is \, too far)
-let mapleader=','
-
 " Turn off preview window
 set completeopt-=preview
 
