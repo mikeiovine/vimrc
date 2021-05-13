@@ -55,6 +55,9 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+" For *do commands
+set hidden
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -93,6 +96,6 @@ set hlsearch
 " Highlight as characters are entered
 set incsearch
 
-" ,h turns off highlighting in normal mode
-nnoremap <leader>h :nohlsearch<CR>
+" \h turns off highlighting in normal mode
+nnoremap <silent> <leader>h :nohlsearch<CR>
 
