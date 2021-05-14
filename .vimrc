@@ -37,11 +37,8 @@ set number
 " Menu for command autocomplete
 set wildmenu
 
-filetype plugin on
-filetype indent on
-
-" For MacBooks
-set backspace=indent,eol,start
+" File specific customizations
+filetype plugin indent on
 
 " Allow use of mouse in normal mode
 set mouse=n
