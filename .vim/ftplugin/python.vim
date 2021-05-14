@@ -1,5 +1,4 @@
 " Binds for Python files
 
-" Run the script with ,r
-nnoremap <buffer> <leader>r :!clear; python3 %<CR>
-
+" Run the script
+nnoremap <leader>r :!clear; python3 %<CR>

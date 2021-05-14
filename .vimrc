@@ -34,7 +34,7 @@ set encoding=utf8
 " Show line numbers
 set number
 
-" Menu for autocomplete
+" Menu for command autocomplete
 set wildmenu
 
 filetype plugin on
@@ -61,32 +61,15 @@ set hidden
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Number of spaces to display when a <TAB> is read
-set tabstop=4 
-
-" Number of spaces to insert on <TAB>/delete on backspace
-set softtabstop=4
-
 " Write spaces instead of <TAB>s
 set expandtab
 
+" Number of spaces to insert when <TAB> is hit (or to delete when
+" backspace is hit)
+set softtabstop=4 
+
 " Tab width for automatic indentation
 set shiftwidth=4
-
-" Enable folding
-set foldenable
-
-" Fold by indent level
-set foldmethod=indent
-
-" Number of folds to initially open 
-set foldlevelstart=5
-
-" Max fold level
-set foldnestmax=5
-
-" Bind fold toggle
-nnoremap <leader>f za
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
