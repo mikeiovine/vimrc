@@ -73,3 +73,5 @@ set incsearch
 " \h turns off highlighting in normal mode
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
+" Turn off bell sounds
+set belloff=all
