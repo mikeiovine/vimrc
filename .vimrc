@@ -1,6 +1,3 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle (Plugin manager)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vundle needs this; turn on further down below
 filetype off
 
@@ -18,8 +15,6 @@ Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
-" YCM-related
-
 " Prevent YCM from asking about loading ycm_extra_conf.py every time
 let g:ycm_confirm_extra_conf = 0
 
@@ -27,9 +22,6 @@ let g:ycm_confirm_extra_conf = 0
 " selecting an autocomplete match
 set completeopt-=preview
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax highlighting
 syntax enable
 
@@ -58,12 +50,10 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
-" For *do commands
+" For *do commands; make it so that they can move to next buffer without
+" needing to write.
 set hidden
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Write spaces instead of <TAB>s
 set expandtab
 
@@ -74,9 +64,6 @@ set softtabstop=4
 " Tab width for automatic indentation
 set shiftwidth=4
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Searching
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Highlight search matches
 set hlsearch
 
