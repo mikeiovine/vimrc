@@ -26,7 +26,6 @@ set completeopt-=preview
 syntax enable
 
 " Colors
-colorscheme peaksea
 set background=dark
 
 " Standard encoding
