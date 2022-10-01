@@ -74,3 +74,6 @@ nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Turn off bell sounds
 set belloff=all
+
+" Allow backspace over eol, start, and autoindents
+set backspace=eol,start,indent
