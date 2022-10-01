@@ -15,9 +15,6 @@ Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
-" Prevent YCM from asking about loading ycm_extra_conf.py every time
-let g:ycm_confirm_extra_conf = 0
-
 " Not specific to YCM, but prevent the preview menu from opening when
 " selecting an autocomplete match
 set completeopt-=preview
