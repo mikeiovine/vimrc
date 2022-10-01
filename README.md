@@ -5,4 +5,5 @@ cd vimrc
 ln -s "$PWD"/.vimrc ~/.vimrc
 ln -s "$PWD"/.vim ~/.vim
 vim -c "PluginInstall"
+python3 .vim/bundle/YouCompleteMe/install.py [OPTIONS]
 ```
