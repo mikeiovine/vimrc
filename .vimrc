@@ -11,12 +11,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Autocomplete
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 
-" Not specific to YCM, but prevent the preview menu from opening when
-" selecting an autocomplete match
+" Prevent preview menu from opening when selecting
+" an autocomplete match.
 set completeopt-=preview
 
 " Syntax highlighting
