@@ -1,4 +1,5 @@
 # Installation
+Requires Vim >= 8.0.
 ```
 git clone git@github.com:mikeiovine/vimrc.git --recursive
 cd vimrc
