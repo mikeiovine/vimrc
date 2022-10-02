@@ -37,9 +37,6 @@ set wildmenu
 " File specific customizations
 filetype plugin indent on
 
-" Allow use of mouse in normal mode
-set mouse=n
-
 " Buffer management
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
@@ -83,3 +80,14 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Persistent undo
+if has('persistent_undo') && exists("*mkdir")
+  let undo_file_dir=expand('~/.vim_undo_files')
+  " Call with the p option so we don't fail
+  " if the directory already exists.
+  call mkdir(undo_file_dir, "p", 0o700)
+  let &undodir=undo_file_dir
+  set undofile
+  unlet undo_file_dir
+endif
