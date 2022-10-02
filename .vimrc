@@ -77,3 +77,9 @@ set backspace=eol,start,indent
 
 " Turn off ugly highlighting of errors
 let g:ale_set_highlights = 0
+
+" Kick those bad habits
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
