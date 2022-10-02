@@ -74,3 +74,6 @@ set belloff=all
 
 " Allow backspace over eol, start, and autoindents
 set backspace=eol,start,indent
+
+" Turn off ugly highlighting of errors
+let g:ale_set_highlights = 0
