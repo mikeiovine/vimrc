@@ -18,6 +18,9 @@ Plugin 'garbas/vim-snipmate'
 
 " Autocomplete w/ tabs
 Plugin 'lifepillar/vim-mucomplete'
+
+" Fuzzy file finder
+Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 let g:ale_set_highlights = 0
