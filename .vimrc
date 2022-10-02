@@ -1,87 +1,46 @@
-" vundle needs this; turn on further down below
+" vundle needs this off; turn on further down below
 filetype off
 
-" Add vundle to runtime path
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" Add plugins here
 call vundle#begin()
-
-" Plugin manager
 Plugin 'VundleVim/Vundle.vim'
-
-" Autocomplete
 Plugin 'dense-analysis/ale'
-
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 call vundle#end()
 
-" Prevent preview menu from opening when selecting
-" an autocomplete match.
-set completeopt-=preview
+let g:ale_set_highlights = 0
+let g:snipMate = { 'snippet_version': 1 }
 
-" Syntax highlighting
 syntax enable
-
-" Colors
 set background=dark
-
-" Standard encoding
 set encoding=utf8
-
-" Line numbers
+set completeopt-=preview
 set number
-
-" Menu for command autocomplete
 set wildmenu
+set hidden
+set expandtab
+set softtabstop=4 
+set shiftwidth=4
+set hlsearch
+set incsearch
+set belloff=all
+set backspace=eol,start,indent
 
-" File specific customizations
 filetype plugin indent on
 
-" Buffer management
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-
-" For *do commands; make it so that they can move to next buffer without
-" needing to write.
-set hidden
-
-" Write spaces instead of <TAB>s
-set expandtab
-
-" Number of spaces to insert when <TAB> is hit (or to delete when
-" backspace is hit)
-set softtabstop=4 
-
-" Tab width for automatic indentation
-set shiftwidth=4
-
-" Highlight search matches
-set hlsearch
-
-" Highlight as characters are entered
-set incsearch
-
-" \h turns off highlighting in normal mode
 nnoremap <silent> <leader>h :nohlsearch<CR>
-
-" Turn off bell sounds
-set belloff=all
-
-" Allow backspace over eol, start, and autoindents
-set backspace=eol,start,indent
-
-" Turn off ugly highlighting of errors
-let g:ale_set_highlights = 0
-
-" Kick those bad habits
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" Persistent undo
 if has('persistent_undo') && exists("*mkdir")
   let undo_file_dir=expand('~/.vim_undo_files')
   " Call with the p option so we don't fail
