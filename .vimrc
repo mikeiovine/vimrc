@@ -11,11 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Linter
 Plugin 'dense-analysis/ale'
 
-" Snippet support + dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
 " Autocomplete w/ tabs
 Plugin 'lifepillar/vim-mucomplete'
 
@@ -24,8 +19,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 
 let g:ale_set_highlights = 0
-
-let g:snipMate = { 'snippet_version': 1 }
 
 " Needed for MUcomplete
 set completeopt+=menuone
