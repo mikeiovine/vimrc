@@ -16,6 +16,9 @@ Plugin 'lifepillar/vim-mucomplete'
 
 " Fuzzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" Color scheme
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 
 let g:ale_set_highlights = 0
@@ -23,9 +26,16 @@ let g:ale_set_highlights = 0
 " Needed for MUcomplete
 set completeopt+=menuone
 
-" General settings
+" Colors
 syntax enable
 set background=dark
+try
+  " Wrap in try/catch to avoid annoying errors when we PluginInstall
+  colorscheme solarized
+catch /.*/
+endtry
+
+" General settings
 set encoding=utf8
 set completeopt-=preview
 set number
