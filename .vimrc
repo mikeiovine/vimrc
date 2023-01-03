@@ -42,14 +42,19 @@ set completeopt-=preview
 set number
 set wildmenu
 set hidden
-set expandtab
-set softtabstop=4 
-set shiftwidth=4
 set hlsearch
 set incsearch
 set belloff=all
 set backspace=eol,start,indent
 set shortmess+=c
+
+" Tab stuff. Override in filetype-specific
+" configs if necessary.
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
 filetype plugin indent on
 
 " Bindings
