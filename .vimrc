@@ -22,6 +22,7 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 
 let g:ale_set_highlights = 0
+let g:ale_virtualtext_cursor = 0
 
 " Needed for MUcomplete
 set completeopt+=menuone
@@ -61,6 +62,7 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+nnoremap <C-J> :ALEGoToDefinition<CR>
 
 " Misc. settings
 
