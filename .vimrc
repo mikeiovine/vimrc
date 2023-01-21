@@ -59,16 +59,25 @@ set shiftwidth=4
 filetype plugin indent on
 
 " Bindings
+let mapleader = ","
+
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
-nnoremap <silent> <leader>h :nohlsearch<CR>
+
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-nnoremap <C-J> :ALEGoToDefinition<CR>
+
+nnoremap <silent> <C-J> :ALEGoToDefinition<CR>
+
+" Open a window + close a window without closing buffer
+nnoremap <leader>v <C-w><C-v>
+nnoremap <leader>x <C-w><C-o>
+
+nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Misc. settings
 
