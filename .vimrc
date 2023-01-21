@@ -55,28 +55,34 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set shiftround
 
 filetype plugin indent on
 
 " Bindings
+
 let mapleader = ","
 
+" Buffer navigation
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+" Arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" Jump to definition
 nnoremap <silent> <C-J> :ALEGoToDefinition<CR>
 
 " Open a window + close a window without closing buffer
 nnoremap <leader>v <C-w><C-v>
 nnoremap <leader>x <C-w><C-o>
 
+" Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Misc. settings
