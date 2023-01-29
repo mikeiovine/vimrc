@@ -1,5 +1,4 @@
 " Plugin settings
-
 " vundle needs this off; turn on further down below
 filetype off
 
@@ -78,9 +77,9 @@ noremap <Right> <Nop>
 " Jump to definition
 nnoremap <silent> <C-J> :ALEGoToDefinition<CR>
 
-" Open a window + close a window without closing buffer
+" Open a window + close a buffer without closing window
 nnoremap <leader>v <C-w><C-v>
-nnoremap <leader>x <C-w><C-o>
+nnoremap <silent> <leader>x :bp\|bd #<CR>
 
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
