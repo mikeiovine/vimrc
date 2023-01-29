@@ -81,6 +81,9 @@ nnoremap <silent> <C-J> :ALEGoToDefinition<CR>
 nnoremap <leader>v <C-w><C-v>
 nnoremap <silent> <leader>x :bp\|bd #<CR>
 
+" Move between windows
+nnoremap <leader>w <C-W><C-W>
+
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
