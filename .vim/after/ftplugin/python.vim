@@ -7,3 +7,5 @@ let b:ale_fixers = [
 \   'autoflake',
 \   'autopep8',
 \]
+
+iabbrev pymain if __name__ == "__main__":
