@@ -40,6 +40,7 @@ endtry
 set encoding=utf8
 set completeopt-=preview
 set number
+set relativenumber
 set wildmenu
 set hidden
 set hlsearch
