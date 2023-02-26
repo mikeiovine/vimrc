@@ -78,9 +78,12 @@ noremap <Right> <Nop>
 " Jump to definition
 nnoremap <silent> <C-J> :ALEGoToDefinition<CR>
 
-" Open a window + close a buffer without closing window
+" Open a window 
 nnoremap <leader>v <C-w><C-v>
+" Close a buffer without closing window
 nnoremap <silent> <leader>x :bp\|bd #<CR>
+" Close a window without closing buffer
+nnoremap <leader>z <C-w>c
 
 " Move between windows
 nnoremap <leader>w <C-W><C-W>
