@@ -9,3 +9,5 @@ let b:ale_fixers = [
 \]
 
 iabbrev pymain if __name__ == "__main__":
+iabbrev pyinit def __init__(self,
+iabbrev pyutest import unittest<CR>class TestCase(unittest.TestCase):<CR>
