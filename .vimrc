@@ -62,6 +62,7 @@ filetype plugin indent on
 " Bindings
 
 let mapleader = ","
+let maplocalleader = ","
 
 " Buffer navigation
 nnoremap <silent> [b :bprevious<CR>
