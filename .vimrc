@@ -92,6 +92,9 @@ nnoremap <leader>w <C-W><C-W>
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
+" Operator pending mapping for stuff inside parentheses
+onoremap p i(
+
 " Misc. settings
 
 " Keep undo logs around when we close buffers.
