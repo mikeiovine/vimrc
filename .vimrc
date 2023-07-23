@@ -65,10 +65,8 @@ let mapleader = ","
 let maplocalleader = ","
 
 " Buffer navigation
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
+nnoremap <silent> <leader>b :bprevious<CR>
+nnoremap <silent> <leader>b :bnext<CR>
 
 " Arrow keys
 noremap <Up> <Nop>
