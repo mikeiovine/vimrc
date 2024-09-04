@@ -5,6 +5,7 @@ git clone git@github.com:mikeiovine/vimrc.git --recursive
 cd vimrc
 ln -s "$PWD"/.vimrc ~/.vimrc
 ln -s "$PWD"/.vim ~/.vim
+cd ~/.vim/bundle/YouCompleteMe && python3 install.py [OPTIONS]
 vim -c PluginInstall
 ```
 

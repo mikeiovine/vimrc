@@ -10,8 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Linter
 Plugin 'dense-analysis/ale'
 
-" Autocomplete w/ tabs
-Plugin 'lifepillar/vim-mucomplete'
+" Autocomplete
+Plugin 'ycm-core/YouCompleteMe'
 
 " Fuzzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
