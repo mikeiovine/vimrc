@@ -18,6 +18,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " Color scheme
 Plugin 'altercation/vim-colors-solarized'
+
+" Lets you comment out things quickly
+Plugin 'tpope/vim-commentary'
+
 call vundle#end()
 
 let g:ale_set_highlights = 0
