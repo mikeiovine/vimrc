@@ -111,3 +111,15 @@ if has('persistent_undo') && exists("*mkdir")
   set undofile
   unlet undo_file_dir
 endif
+
+" Horrible hack for the vim-commentary plugin. When I enter
+" visual mode and comment out my selection with gc, the
+" -- VISUAL -- indicator at the bottom of the screen doesn't
+" go away. This seems like a vim bug because it only happens
+" on vim 9+, vim 8 is fine. This just makes it go away by
+" toggling the show mode setting.
+function CommentaryHack()
+    set nosmd
+    set smd
+endfunction
+autocmd User CommentaryPost call CommentaryHack()
