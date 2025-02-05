@@ -53,6 +53,10 @@ set belloff=all
 set backspace=eol,start,indent
 set shortmess+=c
 
+" For fast escape to normal mode when pressing
+" ESC in insert mode
+set ttimeoutlen=10
+
 " Tab stuff. Override in filetype-specific
 " configs if necessary.
 set expandtab
