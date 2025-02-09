@@ -27,6 +27,8 @@ call vundle#end()
 let g:ale_set_highlights = 0
 let g:ale_virtualtext_cursor = 0
 let g:ale_fix_on_save = 1
+" I use YCM for LSP stuff, so I only need ALE's linting capabilities.
+let g:ale_disable_lsp = 1
 
 " Needed for MUcomplete
 set completeopt+=menuone
