@@ -30,9 +30,6 @@ let g:ale_fix_on_save = 1
 " I use YCM for LSP stuff, so I only need ALE's linting capabilities.
 let g:ale_disable_lsp = 1
 
-" Needed for MUcomplete
-set completeopt+=menuone
-
 " Colors
 syntax enable
 set background=dark
@@ -85,9 +82,6 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-
-" Jump to definition
-nnoremap <silent> <C-J> :ALEGoToDefinition<CR>
 
 " Open a window 
 nnoremap <leader>v <C-w><C-v>
