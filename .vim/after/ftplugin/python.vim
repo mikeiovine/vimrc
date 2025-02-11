@@ -3,9 +3,7 @@ nnoremap <buffer> <localleader>r :!clear; python3 %<CR>
 
 let b:ale_fixers = [
 \   'trim_whitespace',
-\   'black',
-\   'autoflake',
-\   'autopep8',
+\   'yapf',
 \]
 
 iabbrev <buffer> pymain if __name__ == "__main__":
