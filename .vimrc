@@ -71,6 +71,12 @@ filetype plugin indent on
 let mapleader = ","
 let maplocalleader = ","
 
+" By default, comma makes you repeat the last f/F command
+" in the opposite direction. I rarely use this feature,
+" but since we mapped <leader> to comma there can be
+" a huge delay when I do use it. This bind makes it so
+" we have to press comma twice to do the default movement.
+" Slightly annoying, but at least there's no lag.
 nnoremap <leader>, ,
 
 " Buffer navigation
@@ -82,6 +88,10 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Note that jump to definition will only work if we have LSP
+" completers enabled.
+nnoremap <silent> <C-j> :YcmCompleter GoToDefinition<CR>
 
 " Open a window 
 nnoremap <leader>v <C-w><C-v>
