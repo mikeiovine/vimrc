@@ -51,6 +51,27 @@ set incsearch
 set belloff=all
 set backspace=eol,start,indent
 set shortmess+=c
+set laststatus=2
+
+" Statusline config. Close to the default described in
+" :help statusline examples with some modifications.
+" Start with the default filename + flags (help/modified
+" readonly/etc).
+set statusline=%<%f\ %h%w%m%r
+" Add in the current git branch if we're in a git repo.
+" This is technically not portable but should work on
+" every shell I care about.
+function GetGitBranch() abort
+    let result = system("git rev-parse --abbrev-ref HEAD 2> /dev/null")
+    if len(result) > 0
+        return "[" . substitute(result, "\n", "", "g") . "]"
+    else
+        return ""
+    endif
+endfunction
+set statusline+=%{GetGitBranch()}
+" The rest of the default statusline: line/col info, etc
+set statusline+=%=%-14.(%l,%c%V%)\ %P
 
 " For fast escape to normal mode when pressing
 " ESC in insert mode
