@@ -80,7 +80,7 @@ let maplocalleader = ","
 nnoremap <leader>, ,
 
 " Buffer navigation
-nnoremap <silent> <leader>b :bprevious<CR>
+nnoremap <silent> <leader>B :bprevious<CR>
 nnoremap <silent> <leader>b :bnext<CR>
 
 " Arrow keys
