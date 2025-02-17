@@ -106,6 +106,12 @@ nnoremap <leader>w <C-W><C-W>
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
+" Open a terminal in the current window
+nnoremap <silent> <leader>t :term ++curwin<CR>
+
+" Quickly go into normal mode in the terminal
+tnoremap <C-n> <C-w>N
+
 " Operator pending mapping for stuff inside parentheses
 onoremap p i(
 
