@@ -116,8 +116,23 @@ nnoremap <leader>w <C-W><C-W>
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
-" Open a terminal in the current window
-nnoremap <silent> <leader>t :term ++curwin<CR>
+" Open a new terminal in the current window
+" or switch to the terminal if we already have
+" one open.
+function OpenTerm() abort
+    let buf_info = getbufinfo()
+    for buf in buf_info
+        let is_term = getbufvar(buf.bufnr, "is_term")
+        if is_term
+            execute("b" . string(buf.bufnr))
+            return
+        endif
+    endfor
+    term ++curwin ++noclose
+    let b:is_term = 1
+endfunction
+
+nnoremap <silent> <leader>t :call OpenTerm()<CR>
 
 " Quickly go into normal mode in the terminal
 tnoremap <C-n> <C-w>N
