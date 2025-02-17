@@ -58,20 +58,9 @@ set laststatus=2
 " Start with the default filename + flags (help/modified
 " readonly/etc).
 set statusline=%<%f\ %h%w%m%r
-" Add in the current git branch if we're in a git repo.
-" This is technically not portable but should work on
-" every shell I care about.
-function GetGitBranch() abort
-    let result = system("git rev-parse --abbrev-ref HEAD 2> /dev/null")
-    if len(result) > 0
-        return "[" . substitute(result, "\n", "", "g") . "]"
-    else
-        return ""
-    endif
-endfunction
-set statusline+=%{GetGitBranch()}
-" The rest of the default statusline: line/col info, etc
-set statusline+=%=%-14.(%l,%c%V%)\ %P
+" The rest of the default statusline: line/col info, etc.
+" Replace the percentage with line x/total file len.
+set statusline+=%=%-14.(%c%V%)\ %l/%L
 
 " For fast escape to normal mode when pressing
 " ESC in insert mode
