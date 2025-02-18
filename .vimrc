@@ -110,9 +110,6 @@ nnoremap <silent> <leader>x :bp\|bd #<CR>
 " Close a window without closing buffer
 nnoremap <leader>z <C-w>c
 
-" Move between windows
-nnoremap <leader>w <C-W><C-W>
-
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
