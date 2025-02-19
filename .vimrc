@@ -34,8 +34,8 @@ let g:ale_disable_lsp = 1
 syntax enable
 set background=dark
 try
-  " Wrap in try/catch to avoid annoying errors when we PluginInstall
-  colorscheme solarized
+    " Wrap in try/catch to avoid annoying errors when we PluginInstall
+    colorscheme solarized
 catch /.*/
 endtry
 
@@ -143,11 +143,11 @@ onoremap p i(
 " We can always add a crontab to clean up ~/.vim_undo_files
 " if we're worried about disk space.
 if has('persistent_undo') && exists("*mkdir")
-  let undo_file_dir=expand('~/.vim_undo_files')
-  call mkdir(undo_file_dir, "p", 0o700)
-  let &undodir=undo_file_dir
-  set undofile
-  unlet undo_file_dir
+    let undo_file_dir=expand('~/.vim_undo_files')
+    call mkdir(undo_file_dir, "p", 0o700)
+    let &undodir=undo_file_dir
+    set undofile
+    unlet undo_file_dir
 endif
 
 " Horrible hack for the vim-commentary plugin. When I enter
@@ -156,8 +156,11 @@ endif
 " go away. This seems like a vim bug because it only happens
 " on vim 9+, vim 8 is fine. This just makes it go away by
 " toggling the show mode setting.
-function CommentaryHack()
+function CommentaryHack() abort
     set nosmd
     set smd
 endfunction
-autocmd User CommentaryPost call CommentaryHack()
+
+augroup commentary
+    autocmd! User CommentaryPost call CommentaryHack()
+augroup END
