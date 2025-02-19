@@ -46,12 +46,19 @@ set number
 set relativenumber
 set wildmenu
 set hidden
-set hlsearch
 set incsearch
 set belloff=all
 set backspace=eol,start,indent
 set shortmess+=c
 set laststatus=2
+
+" Don't set it again if it's already on.
+" Otherwise, highlighting will be turned on
+" again when we source this vimrc, which can
+" be pretty annoying.
+if !&hlsearch
+    set hlsearch
+endif
 
 " Statusline config. Close to the default described in
 " :help statusline examples with some modifications.
@@ -113,6 +120,9 @@ nnoremap <leader>z <C-w>c
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
+" Source this vimrc for quick changes
+nnoremap <silent> <leader>s :source $MYVIMRC<CR>
+
 " Open a new terminal in the current window
 " or switch to the terminal if we already have
 " one open.
@@ -161,3 +171,16 @@ function CommentaryHack() abort
     set smd
 endfunction
 autocmd! User CommentaryPost call CommentaryHack()
+
+" Helper for abbreviations (I mostly have these defined in ftplugin).
+" This function consumes the last character matching `pat` when
+" expanding an abbreviation.
+" This function is taken directly from the vim docs, see :helpgrep Eatchar
+function EatChar(pat) abort
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? "" : c
+endfunction
+
+function EatNonKeyword() abort
+    return EatChar('[^[:keyword:]]')
+endfunction
