@@ -160,7 +160,4 @@ function CommentaryHack() abort
     set nosmd
     set smd
 endfunction
-
-augroup commentary
-    autocmd! User CommentaryPost call CommentaryHack()
-augroup END
+autocmd! User CommentaryPost call CommentaryHack()
