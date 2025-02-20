@@ -16,9 +16,6 @@ Plugin 'ycm-core/YouCompleteMe'
 " Fuzzy file finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
-" Color scheme
-Plugin 'altercation/vim-colors-solarized'
-
 " Lets you comment out things quickly
 Plugin 'tpope/vim-commentary'
 
@@ -34,9 +31,11 @@ let g:ale_disable_lsp = 1
 syntax enable
 set background=dark
 try
-    " Wrap in try/catch to avoid annoying errors when we PluginInstall
-    colorscheme solarized
+    colorscheme retrobox
 catch /.*/
+    echohl WarningMsg
+    echom "Could not find retrobox colorscheme, update vim to 9.0 to fix"
+    echohl None
 endtry
 
 " General settings

@@ -1,5 +1,7 @@
 # Installation
-Requires Vim >= 8.0.
+Requires Vim >= 9.1.0016. Will probably also work on Vim 8,
+but some things (colors + LSP plugin) might not work.
+
 ```
 git clone git@github.com:mikeiovine/vimrc.git --recursive
 cd vimrc
@@ -8,9 +10,6 @@ ln -s "$PWD"/.vim ~/.vim
 vim -c PluginInstall
 cd ~/.vim/bundle/YouCompleteMe && python3 install.py [OPTIONS]
 ```
-
-If using Vim in a terminal, set the color scheme to solarized
-for best results.
 
 For the `[OPTIONS]` in YCM's `install.py`, you probably just
 want `--clangd-completer` for C++ completion. Use the script's
@@ -25,5 +24,5 @@ Putting all settings in `after/` guarantees that my settings
 will overrule vim's if the default plugin has any conflicts.
 
 There are also no `if exists('b:did_after_ftplugin')` guards
-in this file. This is intentional, I want the files to be
+in these files. This is intentional, I want the files to be
 sourced again if I source my `.vimrc` for quick editing.
