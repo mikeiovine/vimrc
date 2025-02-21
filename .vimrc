@@ -130,7 +130,7 @@ function OpenTerm() abort
     for buf in buf_info
         let is_term = getbufvar(buf.bufnr, "is_term")
         if is_term
-            execute("b" . string(buf.bufnr))
+            execute "b" . string(buf.bufnr)
             return
         endif
     endfor
@@ -165,21 +165,79 @@ endif
 " go away. This seems like a vim bug because it only happens
 " on vim 9+, vim 8 is fine. This just makes it go away by
 " toggling the show mode setting.
-function CommentaryHack() abort
+function s:CommentaryHack() abort
     set nosmd
     set smd
 endfunction
-autocmd! User CommentaryPost call CommentaryHack()
+autocmd! User CommentaryPost call s:CommentaryHack()
 
-" Helper for abbreviations (I mostly have these defined in ftplugin).
+" Helpers for abbreviations (I mostly have these defined in ftplugin).
+
 " This function consumes the last character matching `pat` when
 " expanding an abbreviation.
 " This function is taken directly from the vim docs, see :helpgrep Eatchar
-function EatChar(pat) abort
+function s:EatChar(pat) abort
     let c = nr2char(getchar(0))
     return (c =~ a:pat) ? "" : c
 endfunction
 
 function EatNonKeyword() abort
-    return EatChar('[^[:keyword:]]')
+    return s:EatChar('[^[:keyword:]]')
+endfunction
+
+" Move backwards n times to placeholder
+function MoveToPlaceholder(n, placeholder) abort
+    for _ in range(a:n)
+        call search(a:placeholder, "b")
+    endfor
+endfunction
+
+" Count the number of times pattern occurs in string (non-overlapping)
+function s:CountNumOccurences(string, pattern) abort
+    let pattern_len = len(a:pattern)
+    if pattern_len == 0
+        return 0
+    endif
+
+    let result = 0
+    let idx_pattern = 0
+    for c in a:string
+        if c ==# a:pattern[idx_pattern]
+            let idx_pattern = idx_pattern + 1
+            if idx_pattern == pattern_len
+                let result = result + 1
+                let idx_pattern = 0
+            endif
+        else
+            let idx_pattern = 0
+        endif
+    endfor
+
+    return result
+endfunction
+
+" Helper function that creates a special insert mode abbreviation.
+" The abbreviation will:
+" 1. Substitute 'abbreviation' with 'expanded'
+" 2. Search backwards for the 3rd argument 'placeholder'. If no placeholder
+" is given, the default is an underscore
+" 3. Delete the first placeholder and enter insert mode. Any non-keyword
+" characters inserted by vim are also deleted.
+" 4. After this, you can jump to the next placeholder with n in normal mode.
+"
+" For example:
+" call CreatePlaceholderAbbrev('fl', 'for _ in _:')
+" You will end up with 'for in _:' in insert mode, where the cursor
+" is between 'for' and 'in'.
+function CreatePlaceholderAbbrev(abbreviation, expanded, ...) abort
+    if a:0 > 0
+        let placeholder = a:1
+    else
+        let placeholder = "_"
+    endif
+    let num_placeholders = s:CountNumOccurences(a:expanded, placeholder)
+    let cmd = "iabbrev <buffer> " . a:abbreviation . " " . a:expanded .
+        \ "<Esc>:call MoveToPlaceholder(" . string(num_placeholders) . ", \"" . placeholder . "\")" .
+        \ "<CR>*``cw<C-R>=EatNonKeyword()<CR>"
+    execute cmd
 endfunction
