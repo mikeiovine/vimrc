@@ -196,21 +196,12 @@ function s:CountNumOccurences(string, pattern) abort
     if pattern_len == 0
         return 0
     endif
-
     let result = 0
-    let idx_pattern = 0
-    for c in a:string
-        if c ==# a:pattern[idx_pattern]
-            let idx_pattern = idx_pattern + 1
-            if idx_pattern == pattern_len
-                let result = result + 1
-                let idx_pattern = 0
-            endif
-        else
-            let idx_pattern = 0
-        endif
-    endfor
-
+    let idx = match(a:string, a:pattern)
+    while idx != -1
+        let result += 1
+        let idx = match(a:string, a:pattern, idx + pattern_len)
+    endwhile
     return result
 endfunction
 
