@@ -27,14 +27,18 @@ let g:ale_fix_on_save = 1
 " I use YCM for LSP stuff, so I only need ALE's linting capabilities.
 let g:ale_disable_lsp = 1
 
+function s:EchoWarning(msg) abort
+    echohl WarningMsg
+    echom a:msg
+    echohl None
+endfunction
+
 " Colors
 set background=dark
 try
     colorscheme retrobox
 catch /.*/
-    echohl WarningMsg
-    echom "Could not find retrobox colorscheme, update vim to 9.0 to fix"
-    echohl None
+    call s:EchoWarning("Could not find retrobox colorscheme, update vim to 9.0 to fix")
 endtry
 
 " General settings
@@ -119,6 +123,27 @@ nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Source this vimrc for quick changes
 nnoremap <silent> <leader>s :source $MYVIMRC<CR>
+" Some binds to quickly open config files for quick changes
+" + similar for filetype configs.
+nnoremap <leader>os :e $MYVIMRC<CR>
+
+function OpenFTConfig() abort
+    if &ft == ""
+        call s:EchoWarning("No filetype detected.")
+        return
+    endif
+
+    let ft_config_path = $MYVIMDIR . "after/ftplugin/" . &ft . ".vim"
+    if !filereadable(ft_config_path)
+        call s:EchoWarning("No ft config for filetype " . &ft)
+        return
+    endif
+
+    execute "edit " . ft_config_path
+endfunction
+
+nnoremap <leader>ofs :call OpenFTConfig()<CR>
+
 
 " Open a new terminal in the current window
 " or switch to the terminal if we already have
