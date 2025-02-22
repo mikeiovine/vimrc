@@ -50,6 +50,7 @@ set belloff=all
 set backspace=eol,start,indent
 set shortmess+=c
 set laststatus=2
+set jumpoptions=stack
 
 " Don't set it again if it's already on.
 " Otherwise, highlighting will be turned on
