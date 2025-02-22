@@ -28,7 +28,6 @@ let g:ale_fix_on_save = 1
 let g:ale_disable_lsp = 1
 
 " Colors
-syntax enable
 set background=dark
 try
     colorscheme retrobox
@@ -81,6 +80,23 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 
+" Some tricky behavior here - these should be run after the
+" global options are set!
+"
+" In addition to the .vimrc, we have a bunch of ftplugins
+" that each have their own .vim file with a bunch
+" of buffer-local mappings, abbreviations, etc.
+" myfiletype.vim files usually get sourced when you first open
+" foo.myfiletype. When we toggle the filetype off -> on, all of
+" these files will get sourced again. This means that we can
+" mess with filetype settings without resetting vim - good!
+" But the order matters, because if we set a global option after
+" this happens, it will override the intended filetype specific
+" settings in foo.myfiletype.
+"
+" syntax enable will also turn filetype on - so it has to be
+" here too.
+syntax enable
 filetype plugin indent on
 
 " Bindings
@@ -173,6 +189,11 @@ endfunction
 autocmd! User CommentaryPost call s:CommentaryHack()
 
 " Helpers for abbreviations (I mostly have these defined in ftplugin).
+" First, add extra characters to the keyword set. This is to prevent
+" vim from expanding abbreviations in scenarios where it would be
+" undesirable (for example, 'main' is a common abbreviation for me -
+" I don't want vim to expand stuff like 'def main(')
+let &iskeyword=&iskeyword . ',('
 
 " This function consumes the last character matching `pat` when
 " expanding an abbreviation.
