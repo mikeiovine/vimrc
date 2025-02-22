@@ -6,5 +6,5 @@
 " doesn't happen on older versions of vim.
 runtime after/ftplugin/cpp.vim
 
-iabbrev <buffer> gl __global__
-iabbrev <buffer> de __device__
+iabbrev <buffer> glA __global__
+iabbrev <buffer> deA __device__

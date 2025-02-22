@@ -6,6 +6,6 @@ setlocal shiftwidth=2
 " Note that this is the default in newer versions of vim
 setlocal commentstring=//\ %s
 
-call CreatePlaceholderAbbrev("main", "int main(){_}")
-call CreatePlaceholderAbbrev("fl", "for (auto _ : _) {_}")
-call CreatePlaceholderAbbrev("pr", "std::cout << _ << std::endl;")
+call CreatePlaceholderAbbrev("mainA", "int main(){_}")
+call CreatePlaceholderAbbrev("flA", "for (auto _ : _) {_}")
+call CreatePlaceholderAbbrev("prA", "std::cout << _ << std::endl;")

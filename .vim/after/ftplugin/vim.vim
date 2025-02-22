@@ -1,2 +1,2 @@
-call CreatePlaceholderAbbrev("fn", "function _(_) abort _ endfunction")
-call CreatePlaceholderAbbrev("fl", "for _ in _ _ endfor")
+call CreatePlaceholderAbbrev("fnA", "function _(_) abort _ endfunction")
+call CreatePlaceholderAbbrev("flA", "for _ in _ _ endfor")

@@ -6,11 +6,10 @@ let b:ale_fixers = [
 \   'yapf',
 \]
 
-iabbrev <buffer> main if __name__ == "__main__":
-iabbrev <buffer> imp import
+iabbrev <buffer> mainA if __name__ == "__main__":
 
-call CreatePlaceholderAbbrev("fl", "for _ in _:")
-call CreatePlaceholderAbbrev("wl", "while _:")
-call CreatePlaceholderAbbrev("cl", "class _:")
-call CreatePlaceholderAbbrev("pr", "print(_)")
-call CreatePlaceholderAbbrev("fn", "def _(_)")
+call CreatePlaceholderAbbrev("flA", "for _ in _:")
+call CreatePlaceholderAbbrev("wlA", "while _:")
+call CreatePlaceholderAbbrev("clA", "class _:")
+call CreatePlaceholderAbbrev("prA", "print(_)")
+call CreatePlaceholderAbbrev("fnA", "def _(_)")
