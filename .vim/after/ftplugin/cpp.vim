@@ -9,9 +9,9 @@ setlocal commentstring=//\ %s
 iabbrev <buffer> iA #include
 iabbrev <buffer> dA #define
 
-call CreatePlaceholderAbbrev("mainA", "int main() {<CR>_<CR>}")
-call CreatePlaceholderAbbrev("flA", "for (auto _ : _) {<CR>_<CR>}")
-call CreatePlaceholderAbbrev("prA", "std::cout << _ << std::endl;")
-call CreatePlaceholderAbbrev("iflA", "for (int _ = _; _ < _; _) {<CR>_<CR>}")
-call CreatePlaceholderAbbrev("wlA", "while (_) {<CR>_<CR>}")
-call CreatePlaceholderAbbrev("teA", "template <typename _>")
+call CreatePlaceholderAbbrev("mainA", "int main() {<CR>___<CR>}")
+call CreatePlaceholderAbbrev("flA", "for (auto ___ : ___) {<CR>___<CR>}")
+call CreatePlaceholderAbbrev("prA", "std::cout << ___ << std::endl;")
+call CreatePlaceholderAbbrev("iflA", "for (int ___ = ___; ___ < ___; ___) {<CR>___<CR>}")
+call CreatePlaceholderAbbrev("wlA", "while (___) {<CR>___<CR>}")
+call CreatePlaceholderAbbrev("teA", "template <typename ___>")

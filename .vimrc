@@ -270,7 +270,7 @@ function CreatePlaceholderAbbrev(abbreviation, expanded, ...) abort
     if a:0 > 0
         let placeholder = a:1
     else
-        let placeholder = "_"
+        let placeholder = "___"
     endif
     let num_placeholders = s:CountNumOccurences(a:expanded, placeholder)
     let cmd = "iabbrev <buffer> " . a:abbreviation . " " . a:expanded .

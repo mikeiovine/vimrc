@@ -1,3 +1,3 @@
-call CreatePlaceholderAbbrev("fnA", "function _(_) abort<CR>_<CR>endfunction")
-call CreatePlaceholderAbbrev("flA", "for _ in _<CR>_<CR>endfor")
-call CreatePlaceholderAbbrev("ifA", "if _<CR>endif")
+call CreatePlaceholderAbbrev("fnA", "function ___(___) abort<CR>___<CR>endfunction")
+call CreatePlaceholderAbbrev("flA", "for ___ in ___<CR>___<CR>endfor")
+call CreatePlaceholderAbbrev("ifA", "if ___<CR>endif")
