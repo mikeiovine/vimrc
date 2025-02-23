@@ -8,8 +8,8 @@ let b:ale_fixers = [
 
 iabbrev <buffer> mainA if __name__ == "__main__":
 
-call CreatePlaceholderAbbrev("flA", "for _ in _:")
-call CreatePlaceholderAbbrev("wlA", "while _:")
-call CreatePlaceholderAbbrev("clA", "class _:")
+call CreatePlaceholderAbbrev("flA", "for _ in _:<CR>_")
+call CreatePlaceholderAbbrev("wlA", "while _:<CR>_")
+call CreatePlaceholderAbbrev("clA", "class _:<CR>_")
 call CreatePlaceholderAbbrev("prA", "print(_)")
-call CreatePlaceholderAbbrev("fnA", "def _(_)")
+call CreatePlaceholderAbbrev("fnA", "def _(_):<CR>_")

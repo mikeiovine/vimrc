@@ -208,9 +208,22 @@ function EatNonKeyword() abort
     return s:EatChar('[^[:keyword:]]')
 endfunction
 
-" Move backwards n times to placeholder
+" Move backwards n times to placeholder.
+" For the special case where the placeholder is a single character and
+" we are already on the placeholder, only move n - 1 times. This is
+" to make placeholder abbreviations ending in a single-character placeholder
+" work properly.
 function MoveToPlaceholder(n, placeholder) abort
-    for _ in range(a:n)
+    let num_jumps = a:n
+
+    if len(a:placeholder) == 1
+        let cur_char = getline('.')[col('.') - 1]
+        if cur_char ==# a:placeholder
+            let num_jumps -= 1
+        endif
+    endif
+
+    for _ in range(num_jumps)
         call search(a:placeholder, "b")
     endfor
 endfunction
