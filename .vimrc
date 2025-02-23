@@ -123,26 +123,36 @@ nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Source this vimrc for quick changes
 nnoremap <silent> <leader>s :source $MYVIMRC<CR>
+
+" Open a file in a new split
+function OpenFileInWindow(filename) abort
+    split
+    execute "edit " . a:filename
+endfunction
+
 " Some binds to quickly open config files for quick changes
 " + similar for filetype configs.
-nnoremap <leader>os :e $MYVIMRC<CR>
+nnoremap <leader>os :call OpenFileInWindow($MYVIMRC)<CR>
 
-function OpenFTConfig() abort
+function OpenFTConfig(filetype) abort
+    let ft_config_path = $MYVIMDIR . "after/ftplugin/" . a:filetype . ".vim"
+    if !filereadable(ft_config_path)
+        call s:EchoWarning("No ft config for filetype " . a:filetype)
+        return
+    endif
+
+    call OpenFileInWindow(ft_config_path)
+endfunction
+
+function OpenFTConfigCurrentFiletype() abort
     if &ft == ""
         call s:EchoWarning("No filetype detected.")
         return
     endif
-
-    let ft_config_path = $MYVIMDIR . "after/ftplugin/" . &ft . ".vim"
-    if !filereadable(ft_config_path)
-        call s:EchoWarning("No ft config for filetype " . &ft)
-        return
-    endif
-
-    execute "edit " . ft_config_path
+    call OpenFTConfig(&ft)
 endfunction
 
-nnoremap <leader>ofs :call OpenFTConfig()<CR>
+nnoremap <leader>ofs :call OpenFTConfigCurrentFiletype()<CR>
 
 
 " Open a new terminal in the current window
