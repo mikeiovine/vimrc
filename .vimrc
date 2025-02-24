@@ -145,9 +145,9 @@ function GetVimDir() abort
     " if it's not set though.
     let rtp_entries = split(&rtp, ",")
     if len(rtp_entries) == 0
-        return expand("~/.vim")
+        return expand("~/.vim") . "/"
     endif
-    return rtp_entries[0]
+    return rtp_entries[0] . "/"
 endfunction
 
 function OpenFTConfig(filetype) abort
