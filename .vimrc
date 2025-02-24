@@ -55,6 +55,9 @@ set shortmess+=c
 set laststatus=2
 set jumpoptions=stack
 
+" See after/syntax/json.vim for info.
+let g:vim_json_warnings = 0
+
 " Don't set it again if it's already on.
 " Otherwise, highlighting will be turned on
 " again when we source this vimrc, which can
