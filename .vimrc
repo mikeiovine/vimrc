@@ -137,8 +137,21 @@ endfunction
 " + similar for filetype configs.
 nnoremap <leader>os :call OpenFileInWindow($MYVIMRC)<CR>
 
+function GetVimDir() abort
+    if $MYVIMDIR != ""
+        return $MYVIMDIR
+    endif
+    " The env var gets set on vim >= 9.1.078. We can make a guess
+    " if it's not set though.
+    let rtp_entries = split(&rtp, ",")
+    if len(rtp_entries) == 0
+        return expand("~/.vim")
+    endif
+    return rtp_entries[0]
+endfunction
+
 function OpenFTConfig(filetype) abort
-    let ft_config_path = $MYVIMDIR . "after/ftplugin/" . a:filetype . ".vim"
+    let ft_config_path = GetVimDir() . "after/ftplugin/" . a:filetype . ".vim"
     if !filereadable(ft_config_path)
         call s:EchoWarning("No ft config for filetype " . a:filetype)
         return
