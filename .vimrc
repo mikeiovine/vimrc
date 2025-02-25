@@ -54,6 +54,7 @@ set backspace=eol,start,indent
 set shortmess+=c
 set laststatus=2
 set jumpoptions=stack
+set spelllang=en_us
 
 " See after/syntax/json.vim for info.
 let g:vim_json_warnings = 0
@@ -126,6 +127,9 @@ nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Source this vimrc for quick changes
 nnoremap <silent> <leader>s :source $MYVIMRC<CR>
+
+" Toggle spell checker
+nnoremap <silent> <leader>c :set spell!<CR>
 
 " Open a file in a new split
 function OpenFileInWindow(filename) abort
