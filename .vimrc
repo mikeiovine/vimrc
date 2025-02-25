@@ -189,13 +189,13 @@ function OpenTerm() abort
     let b:is_term = 1
 endfunction
 
-nnoremap <silent> <leader>t :call OpenTerm()<CR>
+nnoremap <silent> <C-t> :call OpenTerm()<CR>
 
 " Quickly go into normal mode in the terminal
 tnoremap <C-n> <C-w>N
 
 " Quickly close the terminal
-tnoremap <C-b> <C-w>c
+tnoremap <C-t> <C-w>c
 
 " Operator pending mapping for stuff inside parentheses
 onoremap p i(
