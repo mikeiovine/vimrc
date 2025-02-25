@@ -184,6 +184,14 @@ nnoremap <leader>ofs :call OpenFTConfigCurrentFiletype()<CR>
 " or switch to the terminal if we already have
 " one open.
 function OpenTerm() abort
+    let cur_buf = bufnr('%')
+    let cur_buf_is_term = getbufvar(cur_buf, "is_term")
+    if cur_buf_is_term
+        " Have to use execute normal so we can use <C-w>
+        execute "normal! \<C-w>c"
+        return
+    endif
+
     let buf_info = getbufinfo()
     for buf in buf_info
         let is_term = getbufvar(buf.bufnr, "is_term")
