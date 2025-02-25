@@ -314,8 +314,11 @@ endfunction
 " this happens, it will override the intended filetype specific
 " settings in foo.myfiletype.
 "
-" syntax enable will also turn filetype on - so it has to be
-" here too.
+" Surprisingly, the order matters here. :syntax enable will
+" execute :doautoall filetypedetect BufRead if the ftplugins
+" have not been loaded before it's called. This means that
+" sourcing my vimrc does exactly what I want - a bit
+" hacky/fragile, but whatever.
 syntax enable
 filetype plugin indent on
 
