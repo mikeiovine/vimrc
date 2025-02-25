@@ -125,8 +125,13 @@ nnoremap <leader>z <C-w>c
 " Turn off highlighting
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
-" Source this vimrc for quick changes
-nnoremap <silent> <leader>s :source $MYVIMRC<CR>
+function SourceAllAutoloaded() abort
+    if exists("g:loaded_text_helpers")
+        runtime autoload/text_helpers.vim
+    endif
+endfunction
+
+nnoremap <silent> <leader>s :call SourceAllAutoloaded()<CR> <bar> :source $MYVIMRC<CR>
 
 " Toggle spell checker
 nnoremap <silent> <leader>c :set spell!<CR>
