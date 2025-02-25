@@ -179,10 +179,12 @@ function OpenTerm() abort
     for buf in buf_info
         let is_term = getbufvar(buf.bufnr, "is_term")
         if is_term
+            split
             execute "b" . string(buf.bufnr)
             return
         endif
     endfor
+    split
     term ++curwin ++noclose
     let b:is_term = 1
 endfunction
@@ -191,6 +193,9 @@ nnoremap <silent> <leader>t :call OpenTerm()<CR>
 
 " Quickly go into normal mode in the terminal
 tnoremap <C-n> <C-w>N
+
+" Quickly close the terminal
+tnoremap <C-b> <C-w>c
 
 " Operator pending mapping for stuff inside parentheses
 onoremap p i(
