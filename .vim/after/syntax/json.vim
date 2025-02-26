@@ -9,9 +9,7 @@
 " names and whatnot changing when vim updates. So I've disabled the definitions
 " in the default plugin with g:vim_json_warnings = 0 in my vimrc and defined my
 " own copy here. 
-"
-" I also made one modification: I got rid of jsonNoQuotesError because it was
-" not very useful and was incorrectly highlighting true/false literals.
+syn match jsonNoQuotesError "\<[[:alpha:]][[:alnum:]]*\>"
 syn match jsonTripleQuotesError /"""/
 syn match jsonNumError "-\=\<0\d\.\d*\>"
 syn match jsonNumError "\:\@<=[[:blank:]\r\n]*\zs\.\d\+"
@@ -31,6 +29,7 @@ function DisableJSONWarnings() abort
     hi! def link jsonTrailingCommaError None
     hi! def link jsonMissingCommaError None
     hi! def link jsonStringSQError None
+    hi! def link jsonNoQuotesError None
     hi! def link jsonTripleQuotesError None
 endfunction
 
@@ -41,10 +40,16 @@ function EnableJSONWarnings() abort
     hi! def link jsonTrailingCommaError Error
     hi! def link jsonMissingCommaError Error
     hi! def link jsonStringSQError Error
+    hi! def link jsonNoQuotesError Error
     hi! def link jsonTripleQuotesError Error
 endfunction
+
+" Overrides jsonNoQuotesError. Also copied from default plugin.
+" Avoids error highlighting for these special literals.
+syn keyword jsonBoolean true
+syn keyword jsonBoolean false
+syn keyword jsonNull null
 
 autocmd! InsertEnter *.json call DisableJSONWarnings()
 autocmd! InsertLeave *.json call EnableJSONWarnings()
 call EnableJSONWarnings()
-
