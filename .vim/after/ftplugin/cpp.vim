@@ -12,3 +12,4 @@ iabbrev <buffer> tyA typename
 call CreatePlaceholderAbbrev("flA", "for (auto ___ : ___) {<CR>___<CR>}")
 call CreatePlaceholderAbbrev("prA", "std::cout << ___ << std::endl;")
 call CreatePlaceholderAbbrev("wlA", "while (___) {<CR>___<CR>}")
+

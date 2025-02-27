@@ -8,3 +8,4 @@ runtime after/ftplugin/cpp.vim
 
 iabbrev <buffer> glA __global__
 iabbrev <buffer> deA __device__
+
