@@ -4,9 +4,7 @@ Requires Vim >= 9.1.0016. Will probably also work on Vim 8, but some things
 
 ```
 git clone git@github.com:mikeiovine/vimrc.git --recursive
-cd vimrc
-ln -s "$PWD"/.vimrc ~/.vimrc
-ln -s "$PWD"/.vim ~/.vim
+bash vimrc/install.sh
 vim -c PluginInstall
 cd ~/.vim/bundle/YouCompleteMe && python3 install.py [OPTIONS]
 ```
