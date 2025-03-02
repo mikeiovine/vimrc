@@ -183,7 +183,7 @@ nnoremap <leader>ofs :call OpenFTConfigCurrentFiletype()<CR>
 " Open a new terminal in the current window
 " or switch to the terminal if we already have
 " one open.
-function OpenTerm() abort
+function OpenTerm(new_window) abort
     let cur_buf = bufnr('%')
     let cur_buf_is_term = getbufvar(cur_buf, "is_term")
     if cur_buf_is_term
@@ -196,17 +196,22 @@ function OpenTerm() abort
     for buf in buf_info
         let is_term = getbufvar(buf.bufnr, "is_term")
         if is_term
-            split
+            if a:new_window
+                split
+            endif
             execute "b" . string(buf.bufnr)
             return
         endif
     endfor
-    split
+    if a:new_window
+        split
+    endif
     term ++curwin ++noclose
     let b:is_term = 1
 endfunction
 
-nnoremap <silent> <C-t> :call OpenTerm()<CR>
+nnoremap <silent> <C-t> :call OpenTerm(1)<CR>
+nnoremap <silent> <C-w>t :call OpenTerm(0)<CR>
 
 " Quickly go into normal mode in the terminal
 tnoremap <C-n> <C-w>N

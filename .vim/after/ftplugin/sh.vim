@@ -8,4 +8,4 @@ iabbrev <buffer> optA set -eou pipefail
 iabbrev <buffer> shA #!/bin/bash
 
 call CreatePlaceholderAbbrev("ifA", "if [[ ___ ]]; then<CR>___<CR>fi")
-call CreatePlaceholderAbbrev("ecA", "echo \"___\"")
+call CreatePlaceholderAbbrev("caseA", "case ___ in<CR>___<CR>esac")
