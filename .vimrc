@@ -101,9 +101,30 @@ let maplocalleader = ","
 " Slightly annoying, but at least there's no lag.
 nnoremap <leader>, ,
 
+" This function calls :bnext or :bprevious. If the next
+" buffer is a terminal window (with b:is_term set), we
+" skip it. I pretty much only want to open term buffers with
+" <C-t>
+function NextBuffer(previous) abort
+    if a:previous
+        bprevious
+    else
+        bnext
+    endif
+endfunction
+
+function NextBufferNoTerm(previous) abort
+    call NextBuffer(a:previous)
+    let cur_buf = bufnr('%')
+    let cur_buf_is_term = getbufvar(cur_buf, "is_term")
+    if cur_buf_is_term
+        call NextBuffer(a:previous)
+    endif
+endfunction
+
 " Buffer navigation
-nnoremap <silent> <leader>B :bprevious<CR>
-nnoremap <silent> <leader>b :bnext<CR>
+nnoremap <silent> <leader>B :call NextBufferNoTerm(1)<CR>
+nnoremap <silent> <leader>b :call NextBufferNoTerm(0)<CR>
 
 " Arrow keys
 noremap <Up> <Nop>
