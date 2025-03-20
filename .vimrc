@@ -152,7 +152,7 @@ function SourceAllAutoloaded() abort
     endif
 endfunction
 
-nnoremap <silent> <leader>s :call SourceAllAutoloaded()<CR> <bar> :source $MYVIMRC<CR>
+nnoremap <silent> <leader>s :call SourceAllAutoloaded() <bar> :source $MYVIMRC<CR>
 
 " Toggle spell checker
 nnoremap <silent> <leader>c :set spell!<CR>
@@ -266,7 +266,11 @@ function s:CommentaryHack() abort
     set nosmd
     set smd
 endfunction
-autocmd! User CommentaryPost call s:CommentaryHack()
+
+augroup plugin_autocmds
+    autocmd!
+    autocmd User CommentaryPost call s:CommentaryHack()
+augroup END
 
 " Helpers for abbreviations (I mostly have these defined in ftplugin).
 
@@ -342,6 +346,15 @@ function CreatePlaceholderAbbrev(abbreviation, expanded, ...) abort
         \ "<CR>/" . placeholder . "<CR><C-o>cw<C-r>=EatNonKeyword()<CR>"
     execute cmd
 endfunction
+
+augroup misc_autocmds
+    autocmd!
+    " Call :checktime when entering a buffer. I frequently modify files outside of
+    " vim, e.g. via git. Note that we do NOT have the autoread option set. This
+    " means that if a file is changed outside of vim, it will ask us if we want
+    " to reload it when entering the buffer (rather than silently reloading it).
+    autocmd BufEnter * :checktime
+augroup END
 
 " Some tricky behavior here - these should be run after the
 " global options are set!

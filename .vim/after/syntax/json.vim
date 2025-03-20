@@ -50,6 +50,10 @@ syn keyword jsonBoolean true
 syn keyword jsonBoolean false
 syn keyword jsonNull null
 
-autocmd! InsertEnter *.json call DisableJSONWarnings()
-autocmd! InsertLeave *.json call EnableJSONWarnings()
+augroup json_autocmds
+    autocmd!
+    autocmd InsertEnter *.json call DisableJSONWarnings()
+    autocmd InsertLeave *.json call EnableJSONWarnings()
+augroup END
+
 call EnableJSONWarnings()
