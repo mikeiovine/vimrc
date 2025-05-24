@@ -6,6 +6,8 @@ let b:ale_fixers = [
 \   'yapf',
 \]
 
+let b:ale_linters = ['flake8']
+
 iabbrev <buffer> mainA if __name__ == "__main__":
 
 call CreatePlaceholderAbbrev("flA", "for ___ in ___:<CR>___")
