@@ -34,7 +34,7 @@ function s:EchoWarning(msg) abort
 endfunction
 
 " Colors
-set background=dark
+set background=light
 try
     colorscheme retrobox
 catch /.*/
