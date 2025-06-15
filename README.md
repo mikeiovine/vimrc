@@ -25,6 +25,12 @@ for quick editing.
 
 This also applies to other filetype specific files (`syntax`, for example).
 
+## Clipboard on Wayland
+
+Vim's native clipboard register only works on X11. For Wayland, there is a workaround. I've
+bound `<leader>y` to copy the selected area in visual mode to the stdin of the `wl-copy`
+[utility](https://archlinux.org/packages/extra/x86_64/wl-clipboard/).
+
 ## Abbreviations
 
 All abbreviations follow the convention of ending in "A" to avoid unwanted abbreviation expansion.

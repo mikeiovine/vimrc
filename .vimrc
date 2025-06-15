@@ -200,7 +200,6 @@ endfunction
 
 nnoremap <leader>ofs :call OpenFTConfigCurrentFiletype()<CR>
 
-
 " Open a new terminal in the current window
 " or switch to the terminal if we already have
 " one open.
@@ -243,7 +242,12 @@ tnoremap <C-t> <C-w>c
 " Operator pending mapping for stuff inside parentheses
 onoremap p i(
 
-" Misc. settings
+" Workaround for copy/pasting to the system clipboard on Wayland.
+" Requires the wl-copy utility
+" https://archlinux.org/packages/extra/x86_64/wl-clipboard/
+vnoremap <silent> <leader>y :w !wl-copy<CR><CR>
+
+" Misc. setting
 
 " Keep undo logs around when we close buffers.
 " We can always add a crontab to clean up ~/.vim_undo_files
