@@ -1,5 +1,9 @@
 let g:loaded_text_helpers = 1
 
+function s:StripLeadingTrailingWhitespace(s) abort
+    return substitute(a:s, "^\\s\\+\\|\\s\\+$", "", "g")
+endfunction
+
 function s:CollectEntriesAndValidateTable(start, end) abort
     if a:end - a:start < 1
         echoerr "There must be at least two lines in the table."
@@ -9,7 +13,7 @@ function s:CollectEntriesAndValidateTable(start, end) abort
     let rows = []
     let num_entries_per_row = -1
     for i in range(a:start, a:end)
-        let line = getline(i)
+        let line = s:StripLeadingTrailingWhitespace(getline(i))
         let row = split(line, "|")
         if num_entries_per_row == -1
             let num_entries_per_row = len(row)
@@ -35,10 +39,6 @@ function s:CollectEntriesAndValidateTable(start, end) abort
         return []
     endif
     return rows
-endfunction
-
-function s:StripLeadingTrailingWhitespace(s) abort
-    return substitute(a:s, "^\\s\\+\\|\\s\\+$", "", "g")
 endfunction
 
 function s:FormatRow(row, col_width) abort
