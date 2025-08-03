@@ -13,9 +13,6 @@ Plugin 'dense-analysis/ale'
 " Autocomplete
 Plugin 'ycm-core/YouCompleteMe'
 
-" Fuzzy file finder
-Plugin 'ctrlpvim/ctrlp.vim'
-
 " Lets you comment out things quickly
 Plugin 'tpope/vim-commentary'
 
