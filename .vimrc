@@ -244,6 +244,12 @@ onoremap p i(
 " https://archlinux.org/packages/extra/x86_64/wl-clipboard/
 vnoremap <silent> <leader>y :w !wl-copy<CR><CR>
 
+" Fuzzy find files with ctrl-p. Note that the FZF plugin
+" is handled a bit differently compared to the others.
+" Most linux distros ship fzf.vim with their fzf package,
+" so there is no need to grab the latest version from GitHub.
+nnoremap <silent> <C-p> :FZF<CR>
+
 " Misc. setting
 
 " Keep undo logs around when we close buffers.
